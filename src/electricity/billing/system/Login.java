@@ -1,10 +1,10 @@
-
 package electricity.billing.system;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.*;
 
 public class Login extends JFrame implements ActionListener {
 
@@ -84,8 +84,19 @@ public class Login extends JFrame implements ActionListener {
             
             try{
                 Conn c = new Conn();
-                String query = "select * from login where username = '"+susrename+"' and password = '"+spassword+"', user = '"+username+"
+                String query = "select * from login where username = '"+susrename+"' and password = '"+spassword+"' and user = '"+user+";
+                ResultSet rs= c.s.executeQuery(query);
                 
+                
+                if(rs.next()){
+                    setVisible(false);
+                    new Project();
+                    
+                } else{
+                    JOptionPane.showMessageDiaLog(null. "Invalid Login");
+                    username.setText("");
+                    password.setText("");
+                }
             }catch (Exception e){
                 e.printStackTrace();
             }
