@@ -1,4 +1,3 @@
-
 package electricity.billing.system;
 
 import javax.swing.*;
@@ -126,6 +125,24 @@ public class NewCustomer extends JFrame implements ActionListener{
             String email = tfemail.getText();
             String phone = tfphone.getText();
             
+            String query1= "insert into customer values('"+name+"', '"+meter+"', '"+address+"', '"+city+"', '"+state+"','"+email+"', '"+phone+"')";
+            String query2 = "insert into login values('"+meter+"','','"+name+"','','')";
+            
+            try{
+                Conn c = new Conn();
+                c.s.executeUpdate(query1);
+                c.s.executeUpdate(query2);
+                
+                JOptionPane.showMessageDialog(null, "Customer Details Added Successfully");
+                setVisible(false);
+                
+                new MeterInfo(meter);
+                
+                
+            }catch (Exception e){
+                e.printStackTrace();
+                
+            }
             
         }else{
             setVisible(false);
@@ -134,7 +151,6 @@ public class NewCustomer extends JFrame implements ActionListener{
     
     public static void main(String[] args){
         new NewCustomer();
-        
-        
     }
+    
 }
