@@ -93,7 +93,7 @@ public class Login extends JFrame implements ActionListener {
                     new Project();
                     
                 } else{
-                    JOptionPane.showMessageDiaLog(null. "Invalid Login");
+                    JOptionPane.showMessageDiaLog(null, "Invalid Login");
                     username.setText("");
                     password.setText("");
                 }

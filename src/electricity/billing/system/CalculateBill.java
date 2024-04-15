@@ -30,7 +30,7 @@ public class CalculateBill extends JFrame implements ActionListener{
         lblmeternumber.setBounds(100, 80, 100, 20);
         p.add(lblmeternumber);
         
-        meternumber = new Choice();
+       
         
         try {
             Conn c  = new Conn();
